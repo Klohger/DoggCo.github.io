@@ -39,7 +39,7 @@
                 video.draggable = false;
                 video.volume = 0.125;
                 video.preservesPitch = false;
-                const r = Math.random() * 0.05;
+                const r = Math.random() * 0.25;
                 video.playbackRate = 1 + (Math.random() > 0.5 ? (-0.5 * r) : r);
                 const onplay = () => {
                     video.removeEventListener('play', onplay)

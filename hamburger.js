@@ -14,7 +14,6 @@ document.addEventListener('mousedown', (ev) => { /** @type {HTMLImageElement} */
     audio.preservesPitch = false;
     
     audio.playbackRate = 1 + (Math.random()*0.125-0.0625);
-    audio.volume = 0.25;
     audio.addEventListener('play', () => {
         HAMBURGERS.appendChild(hamburger)
         void hamburger.offsetHeight;

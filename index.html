@@ -27,9 +27,11 @@
                 image.src = "https://tr.rbxcdn.com/180DAY-26fdb4c4ff71991d70876fa8ecadf75b/420/420/Gear/Png/noFilter";
                 image.className = 'hamburger';
                 image.draggable = false;
+                const audio = new Audio('https://www.myinstants.com/media/sounds/hamburger-sound-effect.mp3');
+                audio.volume = 0.25;
                 HAMBURGER.appendChild(image);
 
-                return [HAMBURGER, new Audio('https://www.myinstants.com/media/sounds/hamburger-sound-effect.mp3')];
+                return [HAMBURGER, audio];
             };
             const HAMBURGERS = document.createElement('hamburgers');
             HAMBURGERS.style.zIndex=-1;

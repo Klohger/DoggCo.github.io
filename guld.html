@@ -22,10 +22,10 @@
         <title>Document</title>
     </head>
     <body>
-        <video id="guld" src="Videos/GULD.mp4"></video>
+        <video id="guld" src="Videos/GULD.mp4" loop></video>
         <script>
-            /**@type {HTMLVideoElement[]}*/
-            let eminems = [];
+            let num_eminems = 0;
+            /**@type {HTMLVideoElement}*/
             const guld = document.getElementById('guld');
             guld.addEventListener('ended', () => guld.style.opacity = 0);
             const get_hamburg = () => {
@@ -35,31 +35,24 @@
                 image.src = "Videos/GULD.mp4";
                 image.className = 'hamburger';
                 image.draggable = false;
+                image.volume = 0.125;
                 const onplay = (ev) => {
                     image.removeEventListener('play', onplay)
-                    guld.pause();
-                    image.i = eminems.length;
-                    eminems.push(image);
+                    num_eminems++
                     if (guld.style.opacity == 0) {
                         guld.currentTime = 0;
-                        image.pause();
-                    } else {
-                        eminems.forEach((eminem) => {
-                            eminem.pause();
-                            eminem.currentTime = guld.currentTime;
-                        })
+                        guld.pause();
                     }
-                    
-
-                    guld.playbackRate = image.playbackRate;
                     guld.style.opacity = 1;
                     guld.volume = 0;
-                    eminems.forEach((eminem) => eminem.play())
                     guld.play();
                 };
                 const on_end = (ev) => {
-                    eminems = eminems.splice(ev.currentTarget.i, 1);
+                    num_eminems--
                     HAMBURGER.style.opacity = 0;
+                    if (num_eminems == 0) {
+                        guld.style.opacity = 0;
+                    }
                 };
                 image.addEventListener('ended', on_end);
                 image.addEventListener('play', onplay)

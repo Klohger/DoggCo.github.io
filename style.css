@@ -1,4 +1,23 @@
 body {
-    background-color: #313131;
+    background-color: #b14242;
     color: whitesmoke;
+    font-family: papyrus;
+}
+#header {
+    position: fixed;
+    padding: 15px;
+    left: 50%; transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    color: navy;
+    width: 95%;
+    align-items: center;
+    min-height: 10%;
+    margin-top: 15px;
+    background-color: rgba(49, 49, 49, 0.7);
+    border-radius: 20px;
+}
+#mainbody {
+    padding-top: 120px;
 }

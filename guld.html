@@ -36,7 +36,8 @@
                 image.className = 'hamburger';
                 image.draggable = false;
                 image.volume = 0.125;
-                const onplay = (ev) => {
+
+                image.addEventListener('play', () => {
                     image.removeEventListener('play', onplay)
                     num_eminems++
                     if (guld.style.opacity == 0) {
@@ -46,16 +47,19 @@
                     guld.style.opacity = 1;
                     guld.volume = 0;
                     guld.play();
-                };
-                const on_end = (ev) => {
+                })
+                image.addEventListener('ended', () => {
                     num_eminems--
                     HAMBURGER.style.opacity = 0;
                     if (num_eminems == 0) {
                         guld.style.opacity = 0;
                     }
-                };
-                image.addEventListener('ended', on_end);
-                image.addEventListener('play', onplay)
+                });
+                HAMBURGER.addEventListener('transitionend', () => {
+                    if (HAMBURGER.style.opacity == 0) {
+                        HAMBURGER.remove();
+                    }
+                });
                 HAMBURGER.appendChild(image);
                 return [HAMBURGER, image];
             };

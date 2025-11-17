@@ -1,5 +1,7 @@
 body {
-    background-color: #b14242;
+    background-color: #313131;
+    background-image: url(Images/Stars.png);
+    background-attachment: fixed;
     color: whitesmoke;
     font-family: papyrus;
 }
@@ -10,7 +12,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    color: navy;
+    color: whitesmoke;
     width: 95%;
     align-items: center;
     min-height: 10%;

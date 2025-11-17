@@ -34,8 +34,9 @@
                 const audio = new Audio('https://www.myinstants.com/media/sounds/hamburger-sound-effect.mp3');
                 audio.volume = 0.25;
                 audio.preservesPitch = false;
-                audio.playbackRate = 1 + (Math.random()*0.125-0.0625);
-
+                const r = Math.random() * 0.0625;
+                audio.playbackRate = 1 + (Math.random() > 0.5 ? (-0.5 * r) : r);
+                
                 return [HAMBURGER, audio];
             };
             const HAMBURGERS = document.createElement('hamburgers');

@@ -30,8 +30,11 @@
                 image.className = 'hamburger';
                 image.draggable = false;
                 image.loop = true;
-                image.addEventListener('play', () => {
+                image.addEventListener('play', (ev) => {
+                    
                     const guld = document.getElementById('guld');
+                    ev.currentTarget.currentTime = guld.currentTime;
+                    guld.playbackRate = ev.currentTarget.playbackRate;
                     guld.style.opacity = 1;
                     guld.volume = 0;
                     guld.play();

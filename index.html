@@ -30,9 +30,11 @@
                 image.src = "https://tr.rbxcdn.com/180DAY-26fdb4c4ff71991d70876fa8ecadf75b/420/420/Gear/Png/noFilter";
                 image.className = 'hamburger';
                 image.draggable = false;
+                HAMBURGER.appendChild(image);
                 const audio = new Audio('https://www.myinstants.com/media/sounds/hamburger-sound-effect.mp3');
                 audio.volume = 0.25;
-                HAMBURGER.appendChild(image);
+                audio.preservesPitch = false;
+                audio.playbackRate = 1 + (Math.random()*0.125-0.0625);
 
                 return [HAMBURGER, audio];
             };

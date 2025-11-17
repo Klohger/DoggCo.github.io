@@ -30,15 +30,17 @@
             guld.addEventListener('ended', () => guld.style.opacity = 0);
             const get_hamburg = () => {
                 const HAMBURGER = document.createElement('hamburger');
-                const image = document.createElement("video");
+                const video = document.createElement("video");
 
-                image.src = "Videos/GULD.mp4";
-                image.className = 'hamburger';
-                image.draggable = false;
-                image.volume = 0.125;
-
-                image.addEventListener('play', () => {
-                    image.removeEventListener('play', onplay)
+                video.src = "Videos/GULD.mp4";
+                video.className = 'hamburger';
+                video.draggable = false;
+                video.volume = 0.125;
+                video.preservesPitch = false;
+                const r = Math.random();
+                video.playbackRate = 1 + (Math.random() > 0.5 ? (-0.5 * r) : r);
+                video.addEventListener('play', () => {
+                    video.removeEventListener('play', onplay)
                     num_eminems++
                     if (guld.style.opacity == 0) {
                         guld.currentTime = 0;
@@ -48,7 +50,7 @@
                     guld.volume = 0;
                     guld.play();
                 })
-                image.addEventListener('ended', () => {
+                video.addEventListener('ended', () => {
                     num_eminems--
                     HAMBURGER.style.opacity = 0;
                     if (num_eminems == 0) {
@@ -60,8 +62,8 @@
                         HAMBURGER.remove();
                     }
                 });
-                HAMBURGER.appendChild(image);
-                return [HAMBURGER, image];
+                HAMBURGER.appendChild(video);
+                return [HAMBURGER, video];
             };
             const HAMBURGERS = document.createElement('hamburgers');
             document.body.appendChild(HAMBURGERS);

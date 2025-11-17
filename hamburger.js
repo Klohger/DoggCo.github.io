@@ -11,9 +11,7 @@ document.addEventListener('mousedown', (ev) => { /** @type {HTMLImageElement} */
         hamburger.style.top = `${(ev.clientY + window.scrollY) - m}px`
         hamburger.style.left = `${(ev.clientX + window.scrollX) - m}px`
     };
-    audio.preservesPitch = false;
     
-    audio.playbackRate = 1 + (Math.random()*0.125-0.0625);
     audio.addEventListener('play', () => {
         HAMBURGERS.appendChild(hamburger)
         void hamburger.offsetHeight;

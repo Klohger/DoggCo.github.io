@@ -1,0 +1,13 @@
+hamburger {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+    * {
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        width: 10vmin;
+        height: 10vmin;
+    }
+}

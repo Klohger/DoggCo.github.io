@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <video src="Videos/GULD.mp4" autoplay controls></video>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="hamburger.css">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #guld {
+                width: 100vw;
+                height: 100vh;
+                opacity: 0;
+                transition: opacity 1s;
+                display: block;
+            }
+        </style>
+        <title>Document</title>
+    </head>
+    <body>
+        <video id="guld" src="Videos/GULD.mp4" loop></video>
+        <script>
+            const get_hamburg = () => {
+                const HAMBURGER = document.createElement('hamburger');
+                const image = document.createElement("video");
+                image.src = "Videos/GULD.mp4";
+                image.className = 'hamburger';
+                image.draggable = false;
+                image.addEventListener('play', () => {
+                    const guld = document.getElementById('guld');
+                    guld.style.opacity = 1;
+                    guld.volume = 0;
+                    guld.play();
+                })
+                HAMBURGER.appendChild(image);
+                return [HAMBURGER, image];
+            };
+            const HAMBURGERS = document.createElement('hamburgers');
+            document.body.appendChild(HAMBURGERS);
+        </script>
+        <script src="hamburger.js"></script>
+
+    </body>
 </html>

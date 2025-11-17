@@ -23,6 +23,7 @@
     <body>
         <video id="guld" src="Videos/GULD.mp4" loop></video>
         <script>
+            /**@type {HTMLVideoElement[]}*/ const eminems = [];
             const get_hamburg = () => {
                 const HAMBURGER = document.createElement('hamburger');
                 const image = document.createElement("video");
@@ -31,10 +32,14 @@
                 image.draggable = false;
                 image.loop = true;
                 image.addEventListener('play', (ev) => {
-                    
+                    eminems.unshift(ev.currentTarget);
+                    if( eminems.length > 4) {
+                        const eminem = eminems.pop();
+                        eminem.parentElement.remove();
+                    }
                     const guld = document.getElementById('guld');
-                    ev.currentTarget.currentTime = guld.currentTime;
                     guld.playbackRate = ev.currentTarget.playbackRate;
+                    eminems.forEach((eminem) => { eminem.currentTime = guld.currentTime })
                     guld.style.opacity = 1;
                     guld.volume = 0;
                     guld.play();

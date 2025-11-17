@@ -1,8 +1,6 @@
 
 document.addEventListener('mousedown', (ev) => { /** @type {HTMLImageElement} */
-/** @type {[HTMLElement, HTMLAudioElement]} */
-    const [image, audio] = get_hamburg();
-
+    /**@type {[HTMLElement, HTMLAudioElement]}*/const [image, audio] = get_hamburg();
     {
         const m = Math.min(window.innerWidth, window.innerHeight) * 0.05;
         image.style.top = `${(ev.clientY + window.scrollY) - m}px`

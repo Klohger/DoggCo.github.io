@@ -3,20 +3,18 @@ body {
     background-image: url(Images/Stars.png);
     background-attachment: fixed;
     color: whitesmoke;
-    font-family: papyrus;
+    font-family: Comic Sans MS;
 }
 #header {
     position: fixed;
-    padding: 15px;
-    left: 50%; transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    color: whitesmoke;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 95%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between; 
     align-items: center;
-    min-height: 10%;
-    margin-top: 15px;
     background-color: rgba(49, 49, 49, 0.7);
     border-radius: 20px;
 }

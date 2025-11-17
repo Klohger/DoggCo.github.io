@@ -22,12 +22,13 @@
         <title>Document</title>
     </head>
     <body>
-        <video id="guld" src="Videos/GULD.mp4" loop></video>
+        <video id="guld" src="Videos/GULD.mp4" ></video>
         <script>
             /**@type {HTMLVideoElement[]}*/
             let eminems = [];
             /**@type {HTMLVideoElement}*/
             const guld = document.getElementById('guld');
+            guld.volume = 0;
             guld.addEventListener('ended', () => guld.style.opacity = 0);
             const get_hamburg = () => {
                 const HAMBURGER = document.createElement('hamburger');
@@ -53,9 +54,9 @@
                             eminem.currentTime = guld.currentTime;
                         })
                     };
-                    guld.playbackRate = video.playbackRate;
+                    guld.playbackRate = Math.min(guld.playbackRate, video.playbackRate);
                     guld.style.opacity = 1;
-                    guld.volume = 0;
+
                     eminems.forEach((eminem) => {
                         eminem.play();
                     })
